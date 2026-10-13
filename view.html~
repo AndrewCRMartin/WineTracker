@@ -1,0 +1,13 @@
+<html>
+  <head>
+    <title>Tracker</title>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <td>abcdef</td>
+        <td>5</td>
+        <td><input type='button' name='dec'></input></td>
+      </tr>
+  </body>
+</html>
