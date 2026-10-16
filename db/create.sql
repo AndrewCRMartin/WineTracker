@@ -1,53 +1,53 @@
 CREATE TABLE producers (
-   ProdID INT PRIMARY KEY,
-   name CHAR(20)
+   prodid INT PRIMARY KEY,
+   name CHAR(30)
 );
 
 CREATE TABLE winenames (
-   WineNameID INT PRIMARY KEY,
+   winenameid INT PRIMARY KEY,
    name       CHAR(80)
 );
 
 CREATE TABLE types (
-   TypeID   INT PRIMARY KEY,
+   typeid   INT PRIMARY KEY,
    name     CHAR(10)
 );
 
 CREATE TABLE locations (
-   LocID    INT PRIMARY KEY,
+   locid    INT PRIMARY KEY,
    name     CHAR(20)
 );
 
 CREATE TABLE status (
-   StatusID INT PRIMARY KEY,
+   statusid INT PRIMARY KEY,
    name     CHAR(10)
 );
 
 CREATE TABLE sizes (
-   SizeID INT PRIMARY KEY,
+   sizeid INT PRIMARY KEY,
    name   CHAR(8)
 );
 
 CREATE TABLE region (
-   RegionID INT PRIMARY KEY,
-   name     CHAR(20)
+   regionid INT PRIMARY KEY,
+   name     CHAR(30)
 );
 
 CREATE TABLE vendor (
-   VendorID INT PRIMARY KEY,
-   name     CHAR(20)
+   vendorid INT PRIMARY KEY,
+   name     CHAR(30)
 );
 
 create table collection (
-   CollectionID INT PRIMARY KEY,
-   WineNameID   INT,
-   ProdID       INT,
-   TypeID       INT,
-   LocID        INT,
-   StatusID     INT,
-   RegionID     INT,
-   VendorID     INT,
-   SizeID       INT,
+   collectionid INT PRIMARY KEY,
+   winenameid   INT,
+   prodid       INT,
+   typeid       INT,
+   locid        INT,
+   statusid     INT,
+   regionid     INT,
+   vendorid     INT,
+   sizeid       INT,
    bottles      INT,
    vintage      char(8),
    price        REAL,
@@ -57,22 +57,22 @@ create table collection (
    drink        char(20),
    notes        char(80),
    scores       char(80),
-   CONSTRAINT fk_collection_winenames FOREIGN KEY (WineNameID)
-              REFERENCES winenames (WineNameID),
-   CONSTRAINT fk_collection_producers FOREIGN KEY (ProdID)
-              REFERENCES producers (ProdID),
-   CONSTRAINT fk_collection_types FOREIGN KEY (TypeID)
-              REFERENCES types (TypeID),
-   CONSTRAINT fk_collection_sizes FOREIGN KEY (SizeID)
-              REFERENCES sizes (SizeID),
-   CONSTRAINT fk_collection_locations FOREIGN KEY (LocID)
-              REFERENCES locations (LocID),
-   CONSTRAINT fk_collection_status FOREIGN KEY (StatusID)
-              REFERENCES status (StatusID),
-   CONSTRAINT fk_collection_vendor FOREIGN KEY (VendorID)
-              REFERENCES vendor (VendorID),
-   CONSTRAINT fk_collection_region FOREIGN KEY (RegionID)
-              REFERENCES region (RegionID)
+   CONSTRAINT fk_collection_winenames FOREIGN KEY (winenameid)
+              REFERENCES winenames (winenameid),
+   CONSTRAINT fk_collection_producers FOREIGN KEY (prodid)
+              REFERENCES producers (prodid),
+   CONSTRAINT fk_collection_types FOREIGN KEY (typeid)
+              REFERENCES types (typeid),
+   CONSTRAINT fk_collection_sizes FOREIGN KEY (sizeid)
+              REFERENCES sizes (sizeid),
+   CONSTRAINT fk_collection_locations FOREIGN KEY (locid)
+              REFERENCES locations (locid),
+   CONSTRAINT fk_collection_status FOREIGN KEY (statusid)
+              REFERENCES status (statusid),
+   CONSTRAINT fk_collection_vendor FOREIGN KEY (vendorid)
+              REFERENCES vendor (vendorid),
+   CONSTRAINT fk_collection_region FOREIGN KEY (regionid)
+              REFERENCES region (regionid)
 );
 
 
