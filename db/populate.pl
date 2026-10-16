@@ -94,6 +94,11 @@ sub ProcessRow
             $statusID = ProcessStatus($dbh, $$aColumns[$col]);
             next;
         }
+        if($$aHeaders[$col] eq 'PRODUCER')
+        {
+            $producerID = ProcessProducer($dbh, $$aColumns[$col]);
+            next;
+        }
         if($$aHeaders[$col] eq 'REGION')
         {
             $regionID = ProcessRegion($dbh, $$aColumns[$col]);
@@ -223,6 +228,12 @@ sub ProcessRegion
     my $pkeyVal = CheckName($dbh, 'region', 'regionid', 'name', $datum);
     return($pkeyVal);
 }
+sub ProcessProducer
+{
+    my($dbh, $datum) = @_;
+    my $pkeyVal = CheckName($dbh, 'producers', 'prodid', 'name', $datum);
+    return($pkeyVal);
+}
 sub ProcessType
 {
     my($dbh, $datum) = @_;
@@ -257,10 +268,10 @@ sub InsertToCollection
     $collectionID++;
     $sql = <<__EOF;
     INSERT INTO collection (collectionid, winenameid, typeid, sizeid, locid, statusid,
-                        regionid, vendorid, bottles, vintage, price, cprice,
-                        updated, bracket, drink, notes, scores)
+                            prodid, regionid, vendorid, bottles, vintage, price, cprice,
+                            updated, bracket, drink, notes, scores)
         VALUES($collectionID, $winenameID, $typeID, $sizeID, $locationID, $statusID, 
-               $regionID, $vendorID, $bottles, '$vintage', $price, $cprice,
+               $producerID, $regionID, $vendorID, $bottles, '$vintage', $price, $cprice,
                '$updated', '$bracket', '$drink', '$notes', '$scores')
 __EOF
 

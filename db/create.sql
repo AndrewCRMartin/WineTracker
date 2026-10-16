@@ -1,49 +1,47 @@
 CREATE TABLE producers (
    ProdID INT PRIMARY KEY,
-   name CHAR(80)
+   name CHAR(20)
 );
 
 CREATE TABLE winenames (
    WineNameID INT PRIMARY KEY,
-   ProdID     INT,
-   name       CHAR(80),
-   CONSTRAINT fk_winenames_producers FOREIGN KEY (ProdID)
-              REFERENCES producers (ProdID)
+   name       CHAR(80)
 );
 
 CREATE TABLE types (
    TypeID   INT PRIMARY KEY,
-   name     CHAR(80)
+   name     CHAR(10)
 );
 
 CREATE TABLE locations (
    LocID    INT PRIMARY KEY,
-   name     CHAR(80)
+   name     CHAR(20)
 );
 
 CREATE TABLE status (
    StatusID INT PRIMARY KEY,
-   name     CHAR(80)
+   name     CHAR(10)
 );
 
 CREATE TABLE sizes (
    SizeID INT PRIMARY KEY,
-   name   CHAR(80)
+   name   CHAR(8)
 );
 
 CREATE TABLE region (
    RegionID INT PRIMARY KEY,
-   name     CHAR(80)
+   name     CHAR(20)
 );
 
 CREATE TABLE vendor (
    VendorID INT PRIMARY KEY,
-   name     CHAR(80)
+   name     CHAR(20)
 );
 
 create table collection (
    CollectionID INT PRIMARY KEY,
    WineNameID   INT,
+   ProdID       INT,
    TypeID       INT,
    LocID        INT,
    StatusID     INT,
@@ -61,6 +59,8 @@ create table collection (
    scores       char(80),
    CONSTRAINT fk_collection_winenames FOREIGN KEY (WineNameID)
               REFERENCES winenames (WineNameID),
+   CONSTRAINT fk_collection_producers FOREIGN KEY (ProdID)
+              REFERENCES producers (ProdID),
    CONSTRAINT fk_collection_types FOREIGN KEY (TypeID)
               REFERENCES types (TypeID),
    CONSTRAINT fk_collection_sizes FOREIGN KEY (SizeID)
@@ -80,7 +80,7 @@ create table collection (
 
 -- Put a default value into each table
 INSERT INTO producers VALUES (0, '');
-INSERT INTO winenames VALUES (0, 0, '');
+INSERT INTO winenames VALUES (0, '');
 INSERT INTO types  VALUES (0, '');
 INSERT INTO locations VALUES (0, '');
 INSERT INTO status VALUES (0, '');
