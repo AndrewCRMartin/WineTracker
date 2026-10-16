@@ -1,0 +1,9 @@
+drop table collection;
+drop table sizes;
+drop table locations;
+drop table status;
+drop table types;
+drop table vendor;
+drop table winenames;
+drop table producers;
+drop table region;
