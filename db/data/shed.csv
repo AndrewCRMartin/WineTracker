@@ -262,7 +262,7 @@ STATUS,SIZE,REGION,BRACKET,TYPE,PRODUCER,WINENAME,VINTAGE,DRINK,NUMBER,PRICE,VEN
 1,1,France - south,,Rose,,Roubine,2022,,1,5.72,France,,,,
 1,1,France - south,,Rose,,Valestrel,2022,,1,5.25,France,,,,
 1,1,Italy,,Red,,Coste di Moromont d'Abbruzo,2018,,3,0.00,France,,,,
-1,1,Italy,,White,,Neror Oro Appas,8,,4,8.00,France,,,,
+1,1,Italy,,White,,Neror Oro Appas,,,4,8.00,,,,,
 1,1,Loire,,Red,,Manoir de la Greliers Muscadet,2021,,1,4.50,France,,,,
 1,1,Loire,,Red,Unbranded,Muscadet,NV,,1,2.45,France,,,,
 1,1,Loire,,Red,Pierre Chanau,Touraine Gamay,2021,,1,3.59,France,,,,

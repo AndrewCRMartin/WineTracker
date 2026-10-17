@@ -1,5 +1,6 @@
 SELECT
    r.name AS region,
+   c.bracket,
    p.name AS producer,   
    w.name AS wine,
    c.vintage,
@@ -8,7 +9,6 @@ SELECT
    c.price,
 --   c.cprice,
 --   c.updated,
---   c.bracket,
 --   c.drink,
 --   c.notes,
 --   c.scores,
@@ -36,5 +36,5 @@ WHERE
    c.statusid   = s.statusid AND
    c.vendorid   = v.vendorid 
 ORDER BY
-   r.name, w.name, p.name, c.vintage
+   r.name, t.name, c.bracket, w.name, p.name, c.vintage
    
